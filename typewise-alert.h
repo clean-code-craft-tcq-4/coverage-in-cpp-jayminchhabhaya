@@ -1,6 +1,7 @@
 #pragma once
 #include<string>
 #include <iostream>
+#include <unordered_map>
 const std::string EMAILID = "a.b@c.com";
 
 typedef enum {
@@ -8,7 +9,7 @@ typedef enum {
   HI_ACTIVE_COOLING,
   MED_ACTIVE_COOLING
 } CoolingType;
-
+ std::unordered_map< CoolingType, int, std::hash<int> > umap = { { PASSIVE_COOLING, 35 }, { HI_ACTIVE_COOLING, 45 }, { MED_ACTIVE_COOLING,40 } } ;
 typedef enum {
   NORMAL,
   TOO_LOW,
@@ -32,4 +33,4 @@ BreachType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, 
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
 void printMessage(std::string printstr);
-bool comparevalue(double value1,double value2);
+bool comparevalue(double value,double Limit);

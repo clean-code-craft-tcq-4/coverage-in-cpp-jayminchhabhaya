@@ -1,5 +1,6 @@
 #include "typewise-alert.h"
 #include <stdio.h>
+#include<string>
 
 void printMessage(std::string printstr)
 {

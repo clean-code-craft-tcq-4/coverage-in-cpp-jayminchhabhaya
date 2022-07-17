@@ -32,3 +32,4 @@ void sendToEmail(BreachType breachType);
 void printMessage(std::string printstr);
 bool comparevalue(double value,double Limit);
 std::string preparestrtosendmail(std::string str);
+void sendToControllerOREmail(BreachType breachType)

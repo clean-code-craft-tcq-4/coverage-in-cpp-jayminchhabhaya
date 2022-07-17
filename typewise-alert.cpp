@@ -1,19 +1,15 @@
 #include "typewise-alert.h"
 #include <stdio.h>
 #include "breach.h"
-void printMessage(std::string printstr)
-{
+void printMessage(std::string printstr){
   std::cout<<printstr<<std::endl;
 }
-bool comparevalue(double value,double Limit)
-{
+bool comparevalue(double value,double Limit){
   return (value < Limit) ? true:false;
 }
-BreachType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
-
-  BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
-
-  switch(alertTarget) {
+void sendToControllerOREmail(AlertTarget alertTarget,BreachType breachType)
+{
+switch(alertTarget) {
     case TO_CONTROLLER:
       sendToController(breachType);
       break;
@@ -21,6 +17,11 @@ BreachType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, 
       sendToEmail(breachType);
       break;
   }
+}
+BreachType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
+
+  BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
+  sendToControllerOREmail(alertTarget,breachType); 
   return breachType;
 }
 void sendToController(BreachType breachType) {

@@ -6,5 +6,5 @@
 TEST_CASE("infers the breach according to limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
-  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 30) == TOO_HIGH);
+  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 30) == NORMAL);
 }

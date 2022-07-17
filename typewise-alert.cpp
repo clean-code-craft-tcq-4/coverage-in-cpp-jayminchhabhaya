@@ -5,18 +5,21 @@ void printMessage(std::string printstr)
 {
   std::cout<<printstr<<std::endl;
 }
+bool comparevalue(double value,double Limit)
+{
+  return (value < Limit) ? true:false;
+}
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
-  if(value < lowerLimit) {
+  if(comparevalue) {
     return TOO_LOW;
   }
-  if(value > upperLimit) {
+  if(!comparevalue) {
     return TOO_HIGH;
   }
   return NORMAL;
 }
 
-BreachType classifyTemperatureBreach(
-    CoolingType coolingType, double temperatureInC) {
+BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) {
   int lowerLimit = 0;
   int upperLimit = 0;
   switch(coolingType) {

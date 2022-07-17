@@ -32,3 +32,4 @@ BreachType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, 
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
 void printMessage(std::string printstr);
+bool comparevalue(double value1,double value2);

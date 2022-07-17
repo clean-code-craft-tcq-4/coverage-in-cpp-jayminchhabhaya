@@ -4,7 +4,7 @@
 
 void printMessage(std::string printstr)
 {
-  std::cout<<printstr<<endl;
+  std::cout<<printstr<<std::endl;
 }
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(value < lowerLimit) {

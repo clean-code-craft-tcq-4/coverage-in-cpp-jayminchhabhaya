@@ -1,4 +1,3 @@
-#pragma once
 #include "typewise-alert.h"
 
 typedef enum {

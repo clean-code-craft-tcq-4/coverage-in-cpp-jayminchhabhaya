@@ -1,5 +1,6 @@
 #pragma once
 #include<string>
+#include <iostream>
 const std::string EMAILID = "a.b@c.com";
 
 typedef enum {

@@ -53,12 +53,10 @@ BreachType checkAndAlert(
   }
   return breachType;
 }
-
 void sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
-  printf("%x : %x\n", header, breachType);
+  printMessage(std::to_string(header) + " : " +  std::to_string(breachType));
 }
-
 void sendToEmail(BreachType breachType) {
   switch(breachType) {
     case TOO_LOW:

@@ -51,9 +51,9 @@ void sendToController(BreachType breachType) {
 }
 std::string preparestrtosendmail(std::string str)
 {
-  return "To:" + EMAILID + "\n Hi, the temperature is too "+ str +"\n"
+  return "To:" + EMAILID + "\n Hi, the temperature is too "+ str +"\n";
 }
 void sendToEmail(BreachType breachType) {
-     std::unordered_map<BreachType, int, std::hash<std::string>> umapbreachtype = { { NORMAL, "Normal" }, { TOO_LOW, "low" }, { TOO_HIGH,"high" } } ;
+     std::unordered_map<BreachType, std::string> umapbreachtype = { { NORMAL, "Normal" }, { TOO_LOW, "low" }, { TOO_HIGH,"high" } } ;
      printMessage(preparestrtosendmail(umapbreachtype[breachType]));
 }

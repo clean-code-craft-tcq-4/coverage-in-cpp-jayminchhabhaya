@@ -22,6 +22,7 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) {
   int lowerLimit = 0;
   int upperLimit = 0;
+   std::unordered_map<CoolingType, int, std::hash<int>> umapcoolingtype = { { PASSIVE_COOLING, 35 }, { HI_ACTIVE_COOLING, 45 }, { MED_ACTIVE_COOLING,40 } } ;
    if (umapcoolingtype.find(coolingType) != umapcoolingtype.end()){
     upperLimit = umapcoolingtype[coolingType];
    }

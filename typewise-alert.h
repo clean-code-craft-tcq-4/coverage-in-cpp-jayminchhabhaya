@@ -9,7 +9,7 @@ typedef enum {
   HI_ACTIVE_COOLING,
   MED_ACTIVE_COOLING
 } CoolingType;
- std::unordered_map< CoolingType, int, std::hash<int> > umap = { { PASSIVE_COOLING, 35 }, { HI_ACTIVE_COOLING, 45 }, { MED_ACTIVE_COOLING,40 } } ;
+
 typedef enum {
   NORMAL,
   TOO_LOW,

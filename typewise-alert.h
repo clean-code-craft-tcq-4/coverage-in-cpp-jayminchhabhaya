@@ -1,5 +1,5 @@
 #pragma once
-const std::string EMAILID "a.b@c.com"
+const std::string EMAILID "a.b@c.com";
 
 typedef enum {
   PASSIVE_COOLING,

@@ -3,8 +3,8 @@
 #include "test/catch.hpp"
 #include "typewise-alert.h"
 
-BatteryCharacter batteryChar;
-batteryChar.coolingType = PASSIVE_COOLING;
 TEST_CASE("infers the breach according to limits") {
+  BatteryCharacter batteryChar;
+  batteryChar.coolingType = PASSIVE_COOLING;
   REQUIRE(checkAndAlert(TO_CONTROLLER, 20, 30) == TOO_LOW);
 }

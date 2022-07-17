@@ -10,10 +10,10 @@ bool comparevalue(double value,double Limit)
   return (value < Limit) ? true:false;
 }
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
-  if(comparevalue) {
+  if(comparevalue(value,lowerLimit)) {
     return TOO_LOW;
   }
-  if(!comparevalue) {
+  if(!comparevalue(value,lowerLimit)) {
     return TOO_HIGH;
   }
   return NORMAL;

@@ -8,3 +8,8 @@ TEST_CASE("infers the breach according to limits") {
   batteryChar.coolingType = PASSIVE_COOLING;
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 30) == NORMAL);
 }
+TEST_CASE("infers the breach according to limits") {
+  BatteryCharacter batteryChar;
+  batteryChar.coolingType = PASSIVE_COOLING;
+  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 30) == NORMAL);
+}

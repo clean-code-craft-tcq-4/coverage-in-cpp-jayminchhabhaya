@@ -1,6 +1,10 @@
 #include "typewise-alert.h"
 #include <stdio.h>
 
+void printMessage(std::string printstr)
+{
+  std::cout<<printstr<<endl;
+}
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(value < lowerLimit) {
     return TOO_LOW;
@@ -56,15 +60,12 @@ void sendToController(BreachType breachType) {
 }
 
 void sendToEmail(BreachType breachType) {
-  const char* recepient = "a.b@c.com";
   switch(breachType) {
     case TOO_LOW:
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too low\n");
+      printMessage("To:" + EMAILID + "\n Hi, the temperature is too low\n");
       break;
     case TOO_HIGH:
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too high\n");
+      printMessage("To:" + EMAILID + "\n Hi, the temperature is too high\n");
       break;
     case NORMAL:
       break;

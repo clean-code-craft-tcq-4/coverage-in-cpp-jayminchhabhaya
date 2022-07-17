@@ -1,4 +1,5 @@
 #pragma once
+#define EMAILID "a.b@c.com"
 
 typedef enum {
   PASSIVE_COOLING,
@@ -25,8 +26,7 @@ typedef struct {
   char brand[48];
 } BatteryCharacter;
 
-BreachType checkAndAlert(
-  AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
-
+BreachType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
+void printMessage(std::string printstr);

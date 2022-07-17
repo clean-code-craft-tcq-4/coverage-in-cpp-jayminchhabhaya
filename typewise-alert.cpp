@@ -13,7 +13,7 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(comparevalue(value,lowerLimit)) {
     return TOO_LOW;
   }
-  if(!comparevalue(value,lowerLimit)) {
+  if(!comparevalue(value,upperLimit)) {
     return TOO_HIGH;
   }
   return NORMAL;

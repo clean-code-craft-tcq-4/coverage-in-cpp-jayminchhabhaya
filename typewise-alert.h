@@ -2,7 +2,6 @@
 #include<string>
 #include <iostream>
 #include <unordered_map>
-#include "breach.h"
 const std::string EMAILID = "a.b@c.com";
 
 typedef enum {
@@ -10,6 +9,12 @@ typedef enum {
   HI_ACTIVE_COOLING,
   MED_ACTIVE_COOLING
 } CoolingType;
+
+typedef enum {
+  NORMAL,
+  TOO_LOW,
+  TOO_HIGH
+} BreachType;
 
 typedef enum {
   TO_CONTROLLER,
@@ -22,7 +27,10 @@ typedef struct {
 } BatteryCharacter;
 
 BreachType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
+void sendToController(BreachType breachType);
+void sendToEmail(BreachType breachType);
 void printMessage(std::string printstr);
+bool comparevalue(double value,double Limit);
 std::string preparestrtosendmail(std::string str);
 void sendToControllerOREmail(AlertTarget alertTarget,BreachType breachType);
 

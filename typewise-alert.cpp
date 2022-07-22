@@ -18,11 +18,9 @@ switch(alertTarget) {
       break;
   }
 }
-BreachType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
-
+void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
   sendToControllerOREmail(alertTarget,breachType); 
-  return breachType;
 }
 void sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;

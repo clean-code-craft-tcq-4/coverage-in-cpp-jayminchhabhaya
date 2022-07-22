@@ -2,23 +2,10 @@
 
 #include "test/catch.hpp"
 #include "typewise-alert.h"
+#include "breach.h"
 
 TEST_CASE("infers the breach according to limits") {
-  BatteryCharacter batteryChar;
-  batteryChar.coolingType = PASSIVE_COOLING;
-  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 30) == NORMAL);
-  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, -1) == TOO_LOW);
-  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 40) == TOO_HIGH);
-
-  batteryChar.coolingType = HI_ACTIVE_COOLING;
-  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 30) == NORMAL);
-  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, -1) == TOO_LOW);
-  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 50) == TOO_HIGH);
-
-  batteryChar.coolingType = MED_ACTIVE_COOLING;
-  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 30) == NORMAL);
-  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, -1) == TOO_LOW);
-  REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 45) == TOO_HIGH);
-
   
+  REQUIRE(inferBreach(20, 25, 30) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,30) == NORMAL);
 }
